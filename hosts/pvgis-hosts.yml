@@ -1,0 +1,50 @@
+generated: '2026-09-23'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 3
+  own: 3
+  other_domain: 0
+  platform: 0
+  roles:
+  - api
+  - data
+  - website
+hosts:
+- host: api.europa.eu
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: europa.eu
+  role: api
+  relation: own
+- host: data.europa.eu
+  found_by:
+  - probed
+  - site-links
+  - namespace-probe
+  - contract-discovery
+  - well-known
+  types: []
+  serves: []
+  title: The European Data Portal
+  status: 200
+  registrable_domain: europa.eu
+  role: data
+  relation: own
+- host: re.jrc.ec.europa.eu
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - contract-discovery
+  - well-known
+  types:
+  - Website
+  serves:
+  - docs
+  registrable_domain: europa.eu
+  role: website
+  relation: own

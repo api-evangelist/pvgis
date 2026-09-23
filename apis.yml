@@ -1,23 +1,67 @@
 aid: pvgis
+
 name: PVGIS
-description: 'PVGIS is a company surfaced via the API Evangelist harvest backlog (source: energy) and
-  added to the network as a stub for full-pipeline profiling.'
+
+description: PVGIS (Photovoltaic Geographical Information System) is a European Commission service providing free access to solar radiation and
+  photovoltaic performance data worldwide. Users can input location, system parameters, and retrieve hourly, daily, monthly, and yearly solar
+  irradiation, PV output, and performance metrics in various formats (CSV, JSON, PDF). The platform supports multiple PV technologies, mounting
+  options, and includes tools for horizon and temperature data, aiding researchers, engineers, and policymakers in renewable energy planning and
+  analysis.
+
 url: https://raw.githubusercontent.com/api-evangelist/pvgis/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:energy
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-09-23 (modular-v1; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-09-23'
+
 modified: '2026-09-23'
+
+x-coverage:
+  state: unreadable
+  reason: js-rendered-docs
+  detail: PVGIS documentation page is a JavaScript-heavy web app with no machine‑readable OpenAPI/GraphQL spec discovered.
+  evidence:
+  - url: https://re.jrc.ec.europa.eu/pvg_tools/en/
+    status: 200
+  checked: 2026-09-23
+
 tags:
-- Company
-apis: []
+- Energy
+- Solar
+- Renewable
+- Data
+- European Commission
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
 common:
+- type: Hosts
+  url: hosts/pvgis-hosts.yml
+- type: DomainSecurity
+  url: security/pvgis-domain-security.yml
 - type: Website
   url: https://re.jrc.ec.europa.eu/pvg_tools/en/
+
+apis:
+- name: PVGIS API
+  description: API for PVGIS providing solar radiation and photovoltaic performance data
+  humanURL: https://re.jrc.ec.europa.eu/pvg_tools/en/
+  baseURL: null
+  aid: pvgis:pvgis-api
+x-enrichment:
+  date: '2026-09-23'
+  status: enriched
+  artifacts_added: 5
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local
